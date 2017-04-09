@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
-import { createProduct } from './store';
+import { createProduct } from './actions';
 import { connect } from 'react-redux';
+
+const _ProductForm = ({ createProduct, onNameChange, name })=> (
+  <form onSubmit={ createProduct }>
+    <div className='form-group'>
+    <input className='form-control' value={ name } onChange={ onNameChange }/>
+    </div>
+    {
+      !name ? (
+        <button className='btn btn-primary' disabled='disabled'>Save</button>
+      ): (
+        <button className='btn btn-primary'>Save</button>
+      )
+    }
+  </form>
+);
 
 class ProductForm extends Component{
   constructor(){
@@ -10,6 +25,7 @@ class ProductForm extends Component{
     this.createProduct = this.createProduct.bind(this);
   }
   createProduct(ev){
+    ev.preventDefault();
     this.props.createProduct(this.state)
       .then(()=> this.setState({ name: ''}));
   }
@@ -18,18 +34,7 @@ class ProductForm extends Component{
   }
   render(){
     return (
-      <form onSubmit={ this.createProduct }>
-        <div className='form-group'>
-        <input className='form-control' value={ this.state.name } onChange={ this.onNameChange }/>
-        </div>
-        {
-          !this.state.name ? (
-            <button className='btn btn-primary' disabled='disabled'>Save</button>
-          ): (
-            <button className='btn btn-primary'>Save</button>
-          )
-        }
-      </form>
+      <_ProductForm createProduct={ this.createProduct} name={ this.state.name } onNameChange={ this.onNameChange } /> 
     );
   }
 };
