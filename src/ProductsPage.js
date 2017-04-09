@@ -2,7 +2,7 @@ import React from 'react';
 import ProductList from './ProductList';
 import ProductForm from './ProductForm';
 
-const ProductsPage = ({ products, destroyProduct })=> (
+const ProductsPage = ()=> (
   <div className='well'>
     <ProductForm />
     <ProductList />

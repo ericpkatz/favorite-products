@@ -1,16 +1,10 @@
-import React, { Component} from 'react';
+import React from 'react';
 
-export default class App extends Component{
-  constructor(props){
-    super();
-    this.specialNumber = props.specialNumber; 
-  }
-  render(){
-    return (
-      <div className='container'>
-        <h1>Acme</h1>
-        { this.props.children }
-      </div> 
-    );
-  }
-}
+const App = ({ children })=> (
+  <div className='container'>
+    <h1>Acme</h1>
+    { children }
+  </div> 
+);
+
+export default App;

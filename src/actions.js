@@ -51,4 +51,10 @@ const unsetFavoriteProduct = (product)=> (
   }
 );
 
-export { destroyProduct, createProduct, setFavoriteProduct, unsetFavoriteProduct, loadProducts };
+export {
+  destroyProduct,
+  createProduct,
+  setFavoriteProduct,
+  unsetFavoriteProduct,
+  loadProducts
+};

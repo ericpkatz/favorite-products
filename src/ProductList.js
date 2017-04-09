@@ -11,7 +11,7 @@ const ProductList = ({ products, destroyProduct, favoriteProduct, setFavoritePro
             { product.name }
             {
               favoriteProduct.id === product.id ? (
-                <button onClick={ ()=> unsetFavoriteProduct(product)} className='btn btn-success pull-right'>Unset Favorite</button>
+                <button onClick={ ()=> unsetFavoriteProduct()} className='btn btn-success pull-right'>Unset Favorite</button>
               ):(
                 <div>
                   <button onClick={ ()=> setFavoriteProduct(product)} className='btn btn-primary pull-right'>Set As Favorite</button>
